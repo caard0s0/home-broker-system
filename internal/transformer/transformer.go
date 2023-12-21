@@ -29,13 +29,18 @@ func TransformOutput(order *model.Order) *dto.OrderOutput {
 
 	var transactionsOutput []*dto.TransactionOutput
 	for _, t := range order.Transactions {
+		sharesTraded := t.SellingOrder.Shares
+		if t.SellingOrder.Shares > t.BuyingOrder.Shares {
+			sharesTraded = t.BuyingOrder.Shares
+		}
+
 		transactionOutput := &dto.TransactionOutput{
 			TransactionID: t.ID,
 			BuyerID:       t.BuyingOrder.Investor.ID,
 			SellerID:      t.SellingOrder.Investor.ID,
 			StockID:       t.SellingOrder.Stock.ID,
 			Price:         t.Price,
-			Shares:        t.BuyingOrder.Shares - t.BuyingOrder.PendingShares,
+			Shares:        sharesTraded,
 		}
 		transactionsOutput = append(transactionsOutput, transactionOutput)
 	}
