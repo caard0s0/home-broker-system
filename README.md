@@ -114,6 +114,50 @@ git clone https://github.com/caard0s0/home-broker-system.git
 
     ![create_message](https://github.com/caard0s0/home-broker-system/assets/95318788/1032bf55-54bc-4d6e-b354-15d0882c7437)
 
+6. Opening your terminal, you will see the result of the transaction exactly as it is below.
+
+    <p><strong>OBS:</strong> You can also see the result in your <strong>Cluster</strong>.</p>
+
+    ```json
+    {
+        "order_id": 1,
+        "investor_id": 1,
+        "stock_id": "Stock1",
+        "order_type": "BUY",
+        "status": "CLOSED",
+        "partial": 0,
+        "shares": 10,
+        "transactions": [
+            {
+                "transaction_id": "324cb1a1-e73d-4deb-99bc-bf1440907412",
+                "buyer_id": 1,
+                "seller_id": 2,
+                "stock_id": "Stock1",
+                "price": 10,
+                "shares": 10
+            }
+        ]
+    }
+    {
+        "order_id": 2,
+        "investor_id": 2,
+        "stock_id": "Stock1",
+        "order_type": "SELL",
+        "status": "CLOSED",
+        "partial": 0,
+        "shares": 10,
+        "transactions": [
+            {
+                "transaction_id": "324cb1a1-e73d-4deb-99bc-bf1440907412",
+                "buyer_id": 1,
+                "seller_id": 2,
+                "stock_id": "Stock1",
+                "price": 10,
+                "shares": 10
+            }
+        ]
+    }
+    ```
 
 <!-- Tests -->
 <h2 id="tests">Tests</h2>
