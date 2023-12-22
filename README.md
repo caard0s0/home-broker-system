@@ -60,50 +60,6 @@ A Financial Software specialized in the intermediation of money between savers a
 git clone https://github.com/caard0s0/home-broker-system.git
 ```
 
-2. Install <strong>Golang-Migrate</strong> as CLI. for more information visit <a href="https://github.com/golang-migrate/migrate/tree/master/cmd/migrate">Golang CLI Documentation</a>.
-
-3. Create an `app.env` file with environment variables.
-
-<strong>WARNING:</strong> The values ​​below are for testing purposes only, please change them in the future.
-
-```bash
-cat > app.env << EOF
-DB_DRIVER=postgres
-DB_SOURCE=postgresql://root:secret@postgres:5432/bank?sslmode=disable
-HTTP_SERVER_ADDRESS=0.0.0.0:80
-HTTP_CLIENT_ADDRESS=http://localhost:3000
-
-TOKEN_SYMMETRIC_KEY=12345678901234567890123456789012
-ACCESS_TOKEN_DURATION=30m
-
-EMAIL_SENDER_NAME=
-EMAIL_SENDER_ADDRESS=
-EMAIL_SENDER_PASSWORD=
-EOF
-```
-
-4. Install <strong>GoMock</strong> and be able to use the <strong>MockGen</strong> tool.
-
-* Framework installation.
-
-```bash
-go install github.com/golang/mock/mockgen@v1.6.0
-```
-
-* add this PATH to your <strong>go/bin</strong> folder in the `~/.zshrc` file or another Shell.
-
-<strong>WARNING:</strong> This PATH below is just an example.
-
-```bash
-export PATH=$PATH:~/.asdf/installs/golang/1.21.5/packages/bin
-```
-
-5. Install <strong>SQLC</strong>. for more information visit <a href="https://docs.sqlc.dev/en/latest/index.html">SQLC Documentation</a>.
-
-<strong>WARNING:</strong> To install and use the <strong>Full Application</strong>, click on the <strong>Link</strong> below.
-
-6. Install the <strong>Client Side</strong>. for more information visit <a href="https://github.com/caard0s0/united-atomic-bank-client">UAB - Web Version</a>.
-
 
 <!-- Usage -->
 <h2 id="usage">Usage</h2>
@@ -116,6 +72,9 @@ export PATH=$PATH:~/.asdf/installs/golang/1.21.5/packages/bin
 docker compose up -d
 ```
 
+2. Open a browser tab at ´localhost:9021´ to access your <strong>Cluster</strong> in the <strong>Confluent Control Center</strong>.
+
+![cluster_control_center](https://github.com/caard0s0/home-broker-system/assets/95318788/9360c92d-06cb-4b80-97f7-9e3f0cbdcc45)
 
 <!-- Tests -->
 <h2 id="tests">Tests</h2>
