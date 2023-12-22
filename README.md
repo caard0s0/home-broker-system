@@ -36,8 +36,6 @@ A Financial Software specialized in the intermediation of money between savers a
         <li><a href="#tests">Tests</a></li>
     </ul>
 </li>
-<li><a href="#grafana-dashboard">Grafana Dashboard</a></li>
-<li><a href="#api-documentation">API Documentation</a></li>
 <li><a href="#license">License</a></li>
 <li><a href="#contact">Contact</a></li>
 </ol>
@@ -59,7 +57,7 @@ A Financial Software specialized in the intermediation of money between savers a
 
 1. Clone the repository.
 ```bash
-git clone https://github.com/caard0s0/united-atomic-bank-server.git
+git clone https://github.com/caard0s0/home-broker-system.git
 ```
 
 2. Install <strong>Golang-Migrate</strong> as CLI. for more information visit <a href="https://github.com/golang-migrate/migrate/tree/master/cmd/migrate">Golang CLI Documentation</a>.
@@ -130,26 +128,6 @@ docker compose up -d
 go test -v -cover ./...
 ```
 
-
-<br>
-
-<!-- Grafana Dashboard -->
-<h2 id="grafana-dashboard">Grafana Dashboard</h2>
-
-<p>A dashboard created with Grafana to view all the main information about <strong>Docker Containers</strong> and <strong>Requests</strong>.</p>
-
-![docker_dashboard](https://github.com/caard0s0/united-atomic-bank-server/assets/95318788/77bb2774-20ff-4d0e-b652-2d9b72be5618)
-&nbsp;
-![api_dashboard](https://github.com/caard0s0/united-atomic-bank-server/assets/95318788/dfde683d-24db-4841-a960-89db31114446)
-
-<br>
-
-<!-- API Documentation -->
-<h2 id="api-documentation">API Documentation</h2>
-
-<p>A complete and detailed documentation of the API using <strong>Swagger</strong>. To view, visit <a href="https://api.unitedatomicbank.com/docs/index.html#/">API Documentation</a>.</p>
-
-![swagger_docs](https://github.com/caard0s0/united-atomic-bank-server/assets/95318788/d6017510-b63b-43b8-9494-43a449b4a663)
 
 <br>
 
