@@ -72,9 +72,15 @@ git clone https://github.com/caard0s0/home-broker-system.git
 docker compose up -d
 ```
 
-2. Open a browser tab at ´localhost:9021´ to access your <strong>Cluster</strong> in the <strong>Confluent Control Center</strong>.
+2. Open a browser tab at `localhost:9021` to access your <strong>Cluster</strong> in the <strong>Confluent Control Center</strong>.
 
 ![cluster_control_center](https://github.com/caard0s0/home-broker-system/assets/95318788/9360c92d-06cb-4b80-97f7-9e3f0cbdcc45)
+
+3. Create a new <strong>Topic</strong>.
+
+    <strong>WARNING:</strong> The <strong>Topic name</strong> must be exactly as written in the image.
+
+![new_topic](https://github.com/caard0s0/home-broker-system/assets/95318788/42f84f86-b7b0-4385-8d76-e4f0dcc22427)
 
 <!-- Tests -->
 <h2 id="tests">Tests</h2>
