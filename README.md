@@ -91,26 +91,24 @@ git clone https://github.com/caard0s0/home-broker-system.git
 5. Create two new messages (<strong>one at a time</strong>) using the data below, to generate a <strong>New Match</strong> and consequently a <strong>Transaction</strong>.
 
     ```json
-    // 1° Message - Buy Order
     {
-    "order_id": 1,
-    "investor_id": 1,
-    "stock_id": "Stock1",
-    "current_shares": 10,
-    "shares": 10,
-    "price": 10,
-    "order_type": "BUY"
+        "order_id": 1,
+        "investor_id": 1,
+        "stock_id": "Stock1",
+        "current_shares": 10,
+        "shares": 10,
+        "price": 10,
+        "order_type": "BUY"
     }
 
-    // 2° Message - Sell Order
     {
-    "order_id": 2,
-    "investor_id": 2,
-    "stock_id": "Stock1",
-    "current_shares": 10,
-    "shares": 10,
-    "price": 10,
-    "order_type": "SELL"
+        "order_id": 2,
+        "investor_id": 2,
+        "stock_id": "Stock1",
+        "current_shares": 10,
+        "shares": 10,
+        "price": 10,
+        "order_type": "SELL"
     }
     ```
 
