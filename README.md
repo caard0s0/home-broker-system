@@ -1,33 +1,19 @@
 <div id="top"></div>
 
-
-<!-- CI Badge -->
-<a href="https://github.com/caard0s0/united-atomic-bank-server/actions/workflows/ci.yml">
-<img src="https://github.com/caard0s0/united-atomic-bank-server/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build Status">
-</a>
-
-<!-- Build & Publish Docker Badge -->
-<a href="https://github.com/caard0s0/united-atomic-bank-server/actions/workflows/deploy.yml">
-<img src="https://github.com/caard0s0/united-atomic-bank-server/actions/workflows/deploy.yml/badge.svg?branch=main" alt="Build Status">
-</a>
-
-&nbsp;
-
-
 <!-- About the Project -->
 <div align="center">
-<h2>UAB - API Server</h2>
-<p>A complete RESTful API for Financial Institutions, developed with <a href="https://go.dev/">Go</a>.</p>
-<a href="https://github.com/caard0s0/united-atomic-bank-server/issues">Report Bugs</a>
+<h2>Home Broker Algorithm - Microservice</h2>
+<p>A Home Broker algorithm for Investment Brokers, developed with <a href="https://go.dev/">Go</a>.</p>
+<a href="https://github.com/caard0s0/home-broker-system/issues">Report Bugs</a>
 &nbsp;&bull;&nbsp;
-<a href="https://github.com/caard0s0/united-atomic-bank-server/actions">Actions</a>
+<a href="https://github.com/caard0s0/home-broker-system/actions">Actions</a>
 &nbsp;&bull;&nbsp;
-<a href="https://github.com/caard0s0/united-atomic-bank-server/pulls">Pull Requests</a>
+<a href="https://github.com/caard0s0/home-broker-system/pulls">Pull Requests</a>
 </div>
 
 &nbsp;
 
-![db_diagram](https://github.com/caard0s0/united-atomic-bank-server/assets/95318788/c9d6c5fe-f96b-4053-bbd7-b2297caf994b)
+![home_broker_flowchart](https://github.com/caard0s0/home-broker-system/assets/95318788/107c4c7b-e64a-45c0-af85-4fc8a494edf2)
 
 A Financial Software specialized in the intermediation of money between savers and those in need of loans, as well as in the custody of that money. It was created following SOLID principles, for better scalability and code maintenance. In addition, thinking about a reliable and well-tested application, with Unit and Automated Tests using Mock DB, the tests apply the concept of DB Stubs. Deploying it using Amazon's Cloud services.
 
@@ -35,7 +21,7 @@ A Financial Software specialized in the intermediation of money between savers a
 
 <h3>Built With</h3>
 
-[![Tech Tools](https://skillicons.dev/icons?i=go,postgres,docker,aws,kubernetes,githubactions,postman,grafana,prometheus)](https://skillicons.dev)
+[![Tech Tools](https://skillicons.dev/icons?i=go,docker,kafka)](https://skillicons.dev)
 
 
 <!-- Table of Contents -->
