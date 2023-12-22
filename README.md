@@ -68,19 +68,54 @@ git clone https://github.com/caard0s0/home-broker-system.git
 
 1. Create and run the <strong>Containers</strong>.
 
-```cmd
-docker compose up -d
-```
+    ```cmd
+    docker compose up -d
+    ```
 
 2. Open a browser tab at `localhost:9021` to access your <strong>Cluster</strong> in the <strong>Confluent Control Center</strong>.
 
-![cluster_control_center](https://github.com/caard0s0/home-broker-system/assets/95318788/9360c92d-06cb-4b80-97f7-9e3f0cbdcc45)
+    ![cluster_control_center](https://github.com/caard0s0/home-broker-system/assets/95318788/9360c92d-06cb-4b80-97f7-9e3f0cbdcc45)
 
-3. Create a new <strong>Topic</strong>.
+3. Opening your terminal at the root of the application, run the project.
+
+    ```zsh
+    go run cmd/main.go
+    ```
+
+4. Create a new <strong>Topic</strong>.
 
     <strong>WARNING:</strong> The <strong>Topic name</strong> must be exactly as written in the image.
 
-![new_topic](https://github.com/caard0s0/home-broker-system/assets/95318788/42f84f86-b7b0-4385-8d76-e4f0dcc22427)
+    ![new_topic](https://github.com/caard0s0/home-broker-system/assets/95318788/42f84f86-b7b0-4385-8d76-e4f0dcc22427)
+
+5. Create two new messages (<strong>one at a time</strong>) using the data below, to generate a <strong>New Match</strong> and consequently a <strong>Transaction</strong>.
+
+    ```json
+    // 1° Message - Buy Order
+    {
+    "order_id": 1,
+    "investor_id": 1,
+    "stock_id": "Stock1",
+    "current_shares": 10,
+    "shares": 10,
+    "price": 10,
+    "order_type": "BUY"
+    }
+
+    // 2° Message - Sell Order
+    {
+    "order_id": 2,
+    "investor_id": 2,
+    "stock_id": "Stock1",
+    "current_shares": 10,
+    "shares": 10,
+    "price": 10,
+    "order_type": "SELL"
+    }
+    ```
+
+    ![create_message](https://github.com/caard0s0/home-broker-system/assets/95318788/1032bf55-54bc-4d6e-b354-15d0882c7437)
+
 
 <!-- Tests -->
 <h2 id="tests">Tests</h2>
