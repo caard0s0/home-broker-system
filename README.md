@@ -15,7 +15,7 @@
 
 ![home_broker_flowchart](https://github.com/caard0s0/home-broker-system/assets/95318788/107c4c7b-e64a-45c0-af85-4fc8a494edf2)
 
-A Financial Software specialized in the intermediation of money between savers and those in need of loans, as well as in the custody of that money. It was created following SOLID principles, for better scalability and code maintenance. In addition, thinking about a reliable and well-tested application, with Unit and Automated Tests using Mock DB, the tests apply the concept of DB Stubs. Deploying it using Amazon's Cloud services.
+An algorithm intended for share purchase and sale operations in a Home Broker environment. The application was built on a microservices architecture, using Go and Kafka, which is adopted as a messaging system, where purchase and sale orders are produced on a specific topic. The algorithm, in turn, consumes these orders, processes them and, when there is a match, produces the resulting transaction in another topic. all encapsulated in Docker containers with the advantage of easy access to Confluent's Control Center for monitoring and managing Kafka.
 
 &nbsp;
 
@@ -158,6 +158,7 @@ git clone https://github.com/caard0s0/home-broker-system.git
         ]
     }
     ```
+
 
 <!-- Tests -->
 <h2 id="tests">Tests</h2>
