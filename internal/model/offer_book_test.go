@@ -231,3 +231,82 @@ func TestNoMatch(t *testing.T) {
 	assert.Equal(int64(3), order.PendingShares, "Order 1 should have 3 'PendingShares'")
 	assert.Equal(int64(5), order2.PendingShares, "Order 2 should have 5 'PendingShares'")
 }
+
+func TestBuyStockWithThreeTransactions(t *testing.T) {
+	stock1 := NewStock("Stock1", "Stock1", 100)
+
+	investor1 := NewInvestor(1)
+	investor2 := NewInvestor(2)
+	investor3 := NewInvestor(3)
+	investor4 := NewInvestor(4)
+
+	investorStockPosition2 := NewInvestorStocksPosition("Stock1", 10)
+	investor2.AddStockPosition(investorStockPosition2)
+
+	wg := sync.WaitGroup{}
+	ordersChanIn := make(chan *Order)
+	ordersChanOut := make(chan *Order)
+
+	offerBook := NewOfferBook(ordersChanIn, ordersChanOut, &wg)
+	go offerBook.Trade()
+
+	wg.Add(1)
+
+	order1 := NewOrder(1, investor1, stock1, 3, 5, "BUY")
+	ordersChanIn <- order1
+
+	order2 := NewOrder(2, investor2, stock1, 10, 5, "SELL")
+	ordersChanIn <- order2
+
+	go func() {
+		for range ordersChanOut {
+
+		}
+	}()
+
+	wg.Wait()
+
+	assert := assert.New(t)
+	assert.Equal("CLOSED", order1.Status, "Order 1 should be 'CLOSED'")
+	assert.Equal(int64(0), order1.PendingShares, "Order 1 should have 0 'PendingShares'")
+
+	assert.Equal("OPEN", order2.Status, "Order 2 should be 'OPEN'")
+	assert.Equal(int64(7), order2.PendingShares, "Order 2 should have 7 'PendingShares'")
+
+	assert.Equal(int64(3), investor1.GetStockPosition("Stock1").Shares, "Investor 1 should have 3 shares of 'Stock1")
+	assert.Equal(int64(7), investorStockPosition2.Shares, "Investor 2 should have 7 shares of 'Stock1'")
+
+	wg.Add(1)
+
+	order3 := NewOrder(3, investor3, stock1, 3, 5, "BUY")
+	ordersChanIn <- order3
+
+	wg.Wait()
+
+	assert.Equal("CLOSED", order3.Status, "Order 3 should be 'CLOSED'")
+	assert.Equal(int64(0), order3.PendingShares, "Order 3 should have 0 'PendingShares'")
+
+	assert.Equal("OPEN", order2.Status, "Order 2 should be 'OPEN'")
+	assert.Equal(int64(4), order2.PendingShares, "Order 2 should have 4 'PendingShares'")
+
+	assert.Equal(int64(3), investor3.GetStockPosition("Stock1").Shares, "Investor 3 should have 3 shares of 'Stock1")
+	assert.Equal(int64(4), investorStockPosition2.Shares, "Investor 2 should have 4 shares of 'Stock1'")
+
+	wg.Add(1)
+
+	order4 := NewOrder(4, investor4, stock1, 4, 5, "BUY")
+	ordersChanIn <- order4
+
+	wg.Wait()
+
+	assert.Equal("CLOSED", order4.Status, "Order 4 should be 'CLOSED'")
+	assert.Equal(int64(0), order4.PendingShares, "Order 4 should have 0 'PendingShares'")
+
+	assert.Equal("CLOSED", order2.Status, "Order 2 should be 'CLOSED'")
+	assert.Equal(int64(0), order2.PendingShares, "Order 2 should have 0 'PendingShares'")
+
+	assert.Equal(3, len(offerBook.Transactions), "Should have 3 transactions")
+	assert.Equal(15.0, float64(offerBook.Transactions[0].Total), "transaction should have price 15")
+	assert.Equal(15.0, float64(offerBook.Transactions[1].Total), "transaction should have price 15")
+	assert.Equal(20.0, float64(offerBook.Transactions[2].Total), "transaction should have price 20")
+}
