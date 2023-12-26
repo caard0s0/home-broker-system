@@ -1,7 +1,8 @@
 package model
 
 const (
-	StatusOpen = "OPEN"
+	StatusOpen   = "OPEN"
+	StatusClosed = "CLOSED"
 )
 
 type Order struct {

@@ -42,11 +42,14 @@ func (ob *OfferBook) Trade() {
 
 		if order.OrderType == "BUY" {
 			buyOrders[stock].Push(order)
+
 			if sellOrders[stock].Len() > 0 && sellOrders[stock].Orders[0].Price <= order.Price {
 				sellOrder := sellOrders[stock].Pop().(*Order)
+
 				if sellOrder.PendingShares > 0 {
 					transaction := NewTransaction(sellOrder, order, order.Shares, sellOrder.Price)
 					ob.AddTransaction(transaction, ob.wg)
+
 					sellOrder.Transactions = append(sellOrder.Transactions, transaction)
 					order.Transactions = append(order.Transactions, transaction)
 
@@ -62,11 +65,14 @@ func (ob *OfferBook) Trade() {
 
 		if order.OrderType == "SELL" {
 			sellOrders[stock].Push(order)
+
 			if buyOrders[stock].Len() > 0 && buyOrders[stock].Orders[0].Price >= order.Price {
 				buyOrder := buyOrders[stock].Pop().(*Order)
+
 				if buyOrder.PendingShares > 0 {
 					transaction := NewTransaction(order, buyOrder, order.Shares, buyOrder.Price)
 					ob.AddTransaction(transaction, ob.wg)
+
 					buyOrder.Transactions = append(buyOrder.Transactions, transaction)
 					order.Transactions = append(order.Transactions, transaction)
 
